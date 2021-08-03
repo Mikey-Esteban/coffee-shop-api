@@ -29,5 +29,24 @@ tote_photo = Unsplash::Photo.find('lihCTIOP28U').urls.small
 durito_espresso_photo = Unsplash::Photo.find('kj9_MarJ3BA').urls.small
 yosemite_coffee_photo = Unsplash::Photo.find('aEkOGzb1HAQ').urls.small
 
-puts 'hellooooo'
-puts coasters_photo
+photo_data = [
+  {title: 'Main', url: intro_photo},
+  {title: 'Cafe 1', url: cafe_photo_1},
+  {title: 'Cafe 2', url: cafe_photo_2},
+  {title: 'Cafe 3', url: cafe_photo_3},
+  {title: 'Coasters', url: coasters_photo},
+  {title: 'Pourover and Kettle', url: pourover_kettle_set_photo},
+  {title: 'Primo Passo Coffee', url: primo_passo_beans_photo},
+  {title: 'Coffee Mug', url: coffee_mug_photo_1},
+  {title: 'Tea Mug', url: coffee_mug_photo_2},
+  {title: 'Coffee and Tea Mug', url: coffee_mug_set_photo},
+  {title: 'Oat Milk', url: oat_milk_photo},
+  {title: 'Regular and Chocolate Oat Milk', url: oat_milk_set_photo},
+  {title: 'Tatte Tote', url: tote_photo},
+  {title: 'Durito Espresso', url: durito_espresso_photo},
+  {title: 'Yosemite Coffee', url: yosemite_coffee_photo},
+]
+
+photo_data.each do |item|
+  Photo.create(title: item[:title], url: item[:url])
+end
