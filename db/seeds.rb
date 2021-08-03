@@ -29,24 +29,27 @@ tote_photo = Unsplash::Photo.find('lihCTIOP28U').urls.small
 durito_espresso_photo = Unsplash::Photo.find('kj9_MarJ3BA').urls.small
 yosemite_coffee_photo = Unsplash::Photo.find('aEkOGzb1HAQ').urls.small
 
-photo_data = [
+data = [
   {title: 'Main', url: intro_photo},
   {title: 'Cafe 1', url: cafe_photo_1},
   {title: 'Cafe 2', url: cafe_photo_2},
   {title: 'Cafe 3', url: cafe_photo_3},
-  {title: 'Coasters', url: coasters_photo},
-  {title: 'Pourover and Kettle', url: pourover_kettle_set_photo},
-  {title: 'Primo Passo Coffee', url: primo_passo_beans_photo},
-  {title: 'Coffee Mug', url: coffee_mug_photo_1},
-  {title: 'Tea Mug', url: coffee_mug_photo_2},
-  {title: 'Coffee and Tea Mug', url: coffee_mug_set_photo},
-  {title: 'Oat Milk', url: oat_milk_photo},
-  {title: 'Regular and Chocolate Oat Milk', url: oat_milk_set_photo},
-  {title: 'Tatte Tote', url: tote_photo},
-  {title: 'Durito Espresso', url: durito_espresso_photo},
-  {title: 'Yosemite Coffee', url: yosemite_coffee_photo},
+  {title: 'Coasters', url: coasters_photo, price: 5},
+  {title: 'Pourover and Kettle', url: pourover_kettle_set_photo, price: 30},
+  {title: 'Primo Passo Coffee', url: primo_passo_beans_photo, price: 14},
+  {title: 'Coffee Mug', url: coffee_mug_photo_1, price: 6},
+  {title: 'Tea Mug', url: coffee_mug_photo_2, price: 6},
+  {title: 'Coffee and Tea Mug', url: coffee_mug_set_photo, price: 10},
+  {title: 'Oat Milk', url: oat_milk_photo, price: 4},
+  {title: 'Regular and Chocolate Oat Milk', url: oat_milk_set_photo, price: 7},
+  {title: 'Tatte Tote', url: tote_photo, price: 12},
+  {title: 'Durito Espresso', url: durito_espresso_photo, price: 14},
+  {title: 'Yosemite Coffee', url: yosemite_coffee_photo, price: 14},
 ]
 
-photo_data.each do |item|
-  Photo.create(title: item[:title], url: item[:url])
+data.each do |item|
+  p = Photo.create(title: item[:title], url: item[:url])
+  if item[:price]
+    i = Item.create(title: item[:title], price: item[:price], photo_id: p.id)
+  end
 end
