@@ -6,9 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+puts "IM IN SEEDS"
 intro_photo = Unsplash::Photo.find('XtUd5SiX464').urls.full
-menu_photo = Unsplash::Photo.find('19FaE4y6guY').urls.full
+menu_photo = Unsplash::Photo.find('ueOilE1blwQ').urls.full
+
+puts "#{intro_photo}"
 
 cafe_photo_1 = Unsplash::Photo.find('e-9eDRBH4S4').urls.regular
 cafe_photo_2 = Unsplash::Photo.find('W-8VcLj2mWU').urls.regular
